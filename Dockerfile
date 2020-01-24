@@ -1,0 +1,6 @@
+FROM mysql
+
+ENV MYSQL_ROOT_PASSWORD="admin"
+ENV MYSQL_DATABASE="sqlrundb"
+ENV MYSQL_USER="testuser"
+ENV MYSQL_PASSWORD="testpassword"
