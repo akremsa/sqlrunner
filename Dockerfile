@@ -1,6 +1,10 @@
-FROM mysql
+FROM python:3.7-alpine
 
-ENV MYSQL_ROOT_PASSWORD="admin"
-ENV MYSQL_DATABASE="sqlrundb"
-ENV MYSQL_USER="testuser"
-ENV MYSQL_PASSWORD="testpassword"
+COPY requirements.txt /
+
+RUN pip install -r /requirements.txt
+
+COPY ./application.py /
+COPY ./config.py /
+
+CMD ["python", "./application.py"]

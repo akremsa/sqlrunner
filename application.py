@@ -13,7 +13,7 @@ pprint(vars(cfg))
 app.config.from_object(cfg)
 engine = create_engine('mysql+pymysql://{0}:{1}@{2}:{3}/{4}'.format(cfg.DB_USERNAME,cfg.DB_PASSWORD,cfg.DB_HOST,cfg.DB_PORT,cfg.DB_NAME),echo=True)
 conn = engine.connect()
-app.run()
+
 
 @app.route('/health', methods=['GET'])
 def health():
@@ -36,6 +36,6 @@ def run_sql():
                 
         return jsonify(resp, HTTPStatus.OK)
 
-        
+app.run(host='0.0.0.0')  
 
 
